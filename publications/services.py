@@ -21,7 +21,7 @@ def set_values_to_m2m_fields_of_object(
 
 def publication_list_service(**filter_dict):
     if filter_dict:
-        return Publication.objects.filter(moderation_status='VALID').filter(**filter_dict)
+        return Publication.objects.filter(**filter_dict)
     return Publication.objects.filter(moderation_status='VALID')
 
 

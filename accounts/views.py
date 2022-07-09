@@ -37,5 +37,5 @@ class UserDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(UserDetailView, self).get_context_data(**kwargs)
-        context['filtered_publications'] = publication_list_service(user=self.get_object())
+        context['filtered_publications'] = publication_list_service(user=self.get_object(), moderation_status='VALID')
         return context
