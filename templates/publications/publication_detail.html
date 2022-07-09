@@ -11,6 +11,9 @@
             </div>
             <div class="card-body">
                 <h4 class="card-title">{{ publication.title }}</h4>
+                {% if publication.price %}
+                    <h4 class="card-title">${{ publication.price }}</h4>
+                {% endif %}
                 <p class="card-text">{{ publication.text }}</p>
                 <p class="card-text">Author: <a href="{% url 'accounts:user_detail' publication.user.pk %}"><span
                         class="username-text">{{ publication.user.username }}</span></a></p>
@@ -19,7 +22,7 @@
                 {% endif %}
                 <div class="card-footer">
                     {% if publication.moderation_status == 'VALID' and request.user == publication.user %}
-                        <a href="#" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'publications:publication_update' publication.pk %}" class="btn btn-primary">Edit</a>
                     {% endif %}
                     {% if publication.moderation_status == 'INVALID' and request.user == publication.user %}
                         <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete

@@ -11,6 +11,9 @@
             </div>
             <div class="card-body">
                 <h4 class="card-title">{{ pub.title }}</h4>
+                {% if pub.price %}
+                    <h4 class="card-title">${{ pub.price }}</h4>
+                {% endif %}
                 <p class="card-text">by <a href="{% url 'accounts:user_detail' pub.user.pk %}"><span class="username-text">{{ pub.user.get_full_name }}</span></a></p>
                 {% if pub.published_at %}
                 <small class="text-muted">Published: {{ pub.published_at }}</small>

@@ -1,8 +1,9 @@
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.urls import reverse
-from django.views.generic import ListView, CreateView, DetailView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView
 
 from publications.forms import PublicationForm
 from publications.models import Publication
@@ -18,7 +19,7 @@ class PublicationListView(ListView):
         return publication_list_service()
 
 
-class PublicationCreateView(CreateView):
+class PublicationCreateView(LoginRequiredMixin, CreateView):
     template_name = 'publications/publication_create.html'
     model = Publication
     context_object_name = 'publication'
@@ -41,3 +42,24 @@ class PublicationDetailView(DetailView):
     template_name = 'publications/publication_detail.html'
     model = Publication
     context_object_name = 'publication'
+
+
+class PublicationUpdateView(UserPassesTestMixin, UpdateView):
+    template_name = 'publications/publication_update.html'
+    model = Publication
+    context_object_name = 'publication'
+    form_class = PublicationForm
+    # permission_required = 'publications.change_publication'
+
+    def test_func(self):
+        return self.request.user == self.get_object().user and self.get_object().moderation_status == 'VALID'
+
+    def get_success_url(self):
+        return reverse('publications:publication_detail', kwargs={'pk': self.object.pk})
+    # def has_permission(self):
+    #     return (
+    #             super().has_permission() and
+    #             self.request.user == self.get_object().user and
+    #             self.get_object().moderation_status == 'VALID'
+    #             )
+

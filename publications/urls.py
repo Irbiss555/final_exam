@@ -10,4 +10,5 @@ urlpatterns = [
     path('', views.PublicationListView.as_view(), name='publication_list'),
     path('create/', views.PublicationCreateView.as_view(), name='publication_create'),
     path('<int:pk>/', views.PublicationDetailView.as_view(), name='publication_detail'),
+    path('<int:pk>/update/', views.PublicationUpdateView.as_view(), name='publication_update'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
