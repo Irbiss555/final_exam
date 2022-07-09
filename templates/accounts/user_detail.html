@@ -10,8 +10,12 @@
                     <h5 class="card-title">Username: {{ user_obj.username }}</h5>
                     <p class="card-text">Name: {{ user_obj.first_name }}</p>
                     <p class="card-text">Email: {{ user_obj.email }}</p>
+                    <p class="card-text">Phone: {{ user_obj.phone }}</p>
                 </div>
         </div>
+        {% if user_obj == request.user %}
+        <a href="{% url 'accounts:user_update_phone' user_obj.pk %}" class="btn btn-primary">Update Phone</a>
+        {% endif %}
     </div>
     <h3 style="margin-top: 40px">Publications</h3>
     {% if request.user == user_obj %}

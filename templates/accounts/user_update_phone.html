@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>Update phone</h1>
+    <form action="{% url 'accounts:user_update_phone' form.instance.pk %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="phone" class="form-label">{{ form.phone.label }}</label>
+            <input required type="number" class="form-control" id="phone" name="{{ form.phone.name }}"
+                   value="{{ form.instance.phone }}">
+            {% for error in form.phone.errors %}
+                <div role="alert" style="color: red;">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+{% endblock %}

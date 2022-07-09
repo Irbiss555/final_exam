@@ -38,5 +38,12 @@ class MyUserCreationForm(forms.ModelForm):
             'password',
             'password_confirm',
             'first_name',
+            'phone',
             'email',
         ]
+
+
+class UserPhoneForm(forms.ModelForm):
+    class Meta:
+        model = get_user_model()
+        fields = ['phone']

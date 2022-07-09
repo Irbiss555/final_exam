@@ -17,10 +17,16 @@
             <label for="password" class="form-label">Password:</label>
             <input class="form-control" type="password" name="{{ form.password.name }}" id="password">
         </div>
+
         <div class="mb-3">
             <label for="password_confirm" class="form-label">Password confirm:</label>
             <input class="form-control" type="password" name="{{ form.password_confirm.name }}" id="password_confirm">
         </div>
+            <div class="mb-3">
+        <label id="phone" class="form-label" style="margin-top: 1vw;" for="phone">Phone</label>
+        <input required type="tel" maxlength="11" minlength="11" class="form-control {% if form.phone.errors %}is-invalid{% endif %}" id="phone"
+               name="phone" placeholder="8xxxxxxxxxx">
+    </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email:</label>
             <input class="form-control" type="email" name="{{ form.email.name }}" id="email" value="{{ form.instance.email }}">
