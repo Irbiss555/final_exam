@@ -1,0 +1,24 @@
+{% load static %}
+<div class="photo-container">
+    {% for pub in publications %}
+        <div class="card mb-3 post">
+            <div class="card-header">
+                <a href="#">
+                    <div class="image">
+                    <img src="{{ pub.image.url }}" class="card-img-top" alt="...">
+                </div>
+                </a>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">{{ pub.title }}</h4>
+                <p class="card-text">by <a href="{% url 'accounts:user_detail' pub.user.pk %}"><span class="username-text">{{ pub.user.get_full_name }}</span></a></p>
+                <small class="text-muted">{{ pub.published_at }}</small>
+            </div>
+        </div>
+    {% empty %}
+        <p>Publications not found</p>
+    {% endfor %}
+</div>
+{% if is_paginated %}
+    {% include 'common/paginator.html' %}
+{% endif %}
