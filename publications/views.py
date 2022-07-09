@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.urls import reverse
-from django.views.generic import ListView, CreateView, DetailView, UpdateView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 
 from publications.forms import PublicationForm
 from publications.models import Publication
@@ -51,7 +51,7 @@ class PublicationUpdateView(UserPassesTestMixin, UpdateView):
     form_class = PublicationForm
 
     def test_func(self):
-        return self.request.user == self.get_object().user and self.get_object().moderation_status == 'VALID'
+        return self.request.user == self.get_object().user and self.get_object().moderation_status != 'INVALID'
 
     def get_success_url(self):
         return reverse('publications:publication_detail', kwargs={'pk': self.object.pk})
@@ -59,3 +59,13 @@ class PublicationUpdateView(UserPassesTestMixin, UpdateView):
     def form_valid(self, form):
         publication_update_service(publication=self.object, **form.cleaned_data)
         return redirect(self.get_success_url())
+
+
+class PublicationDeleteView(UserPassesTestMixin, DeleteView):
+    model = Publication
+
+    def test_func(self):
+        return self.request.user == self.get_object().user
+
+    def get_success_url(self):
+        return reverse('accounts:user_detail', kwargs={'pk': self.object.user.pk})
