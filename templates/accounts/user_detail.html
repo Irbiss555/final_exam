@@ -13,6 +13,10 @@
                 </div>
         </div>
     </div>
-    <h3 style="margin-top: 40px">Bookmarks</h3>
-    {% include 'partial/photo/partial_photo_list.html' with photos=user_obj.bookmarked_photos.all %}
+    <h3 style="margin-top: 40px">Publications</h3>
+    {% if request.user == user_obj %}
+            {% include 'partial/publications/partial_publication_list.html' with publications=user_obj.publications.all %}
+    {% else %}
+            {% include 'partial/publications/partial_publication_list.html' with publications=filtered_publications %}
+    {% endif %}
 {% endblock %}
