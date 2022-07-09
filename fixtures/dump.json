@@ -1,0 +1,101 @@
+[
+{
+  "model": "publications.category",
+  "pk": 1,
+  "fields": {
+    "name": "Electronics"
+  }
+},
+{
+  "model": "publications.category",
+  "pk": 2,
+  "fields": {
+    "name": "Clothing"
+  }
+},
+{
+  "model": "publications.publication",
+  "pk": 1,
+  "fields": {
+    "is_deleted": false,
+    "category": 1,
+    "user": 2,
+    "title": "Kasa Indoor Pan/Tilt Smart Security Camera, 1080p HD",
+    "text": "About this item\r\nLive Steam from Anywhere with Pan/Tilt: Sharp and clear 1080p Full HD provides high quality video right in the palm of your hand. Swipe up, down, left and right on your phone to rotate and set your camera’s point of view in real-time.\r\nReal-Time Motion/Sound Detection: Get alerts on your smart phone whenever motion or sound is detected even at night (30ft). Enable patrol mode on your home security camera system, to make most use of cameras for home security as pet camera or nanny cam\r\nSecure Your Videos Locally or with AWS Cloud: EC70 mini camera continuously records and stores footage or video clips on a local MicroSD card up to 64 GB. You can view up to 30 days of video history and enjoy more advanced features when you subscribe Kasa Care Plan\r\nSmart Actions: As one of the most user-friendly security cameras, EC70 provides you a way to set your lights to turn on when your camera detects motion with Smart Actions, which allow you to create interactions between your camera and other Kasa devices\r\nVoice Control: For additional ease of use, pair the Kasa wifi camera with Alexa echo or Google assistant. Use a simple voice command to ask Alexa or Google Assistant to view your live camera feed on compatible Alexa or Google devices",
+    "image": "publication_images/camera.jpg",
+    "price": "499.00",
+    "created_at": "2022-07-09T06:33:17.266Z",
+    "updated_at": "2022-07-09T12:00:13.293Z",
+    "published_at": "2022-07-09T12:00:13.293Z",
+    "moderation_status": "VALID"
+  }
+},
+{
+  "model": "publications.publication",
+  "pk": 2,
+  "fields": {
+    "is_deleted": false,
+    "category": 1,
+    "user": 2,
+    "title": "GoPro HERO10 Black",
+    "text": "About this item\r\nRevolutionary Processor: Faster. Smoother. Better. The powerful new GP2 engine changes the game—snappy performance, responsive touch controls and double the frame rate for amazingly smooth footage. Designed specifically for the demanding nature of the GoPro, the GP2 “system on a chip” is by far our fastest ever.\r\nHigh-Res Photos plus Videos, High Frame Rate: Step up to the sharpest-shooting GoPro ever. Upgraded to incredible 23MP photos and 5.3K video resolution at 60fps, HERO10 offers double the frame rate for amazingly smooth motion. Plus, there’s 8x slo-mo at 2.7K and you can pause videos and grab 15.8MP still photos from 5.3K video that look amazing.\r\nUnbelievable Image Quality: Shoot with fine detail, realistic textures and stunning contrast, even in low light. Images look their best thanks to a new water-shedding hydrophobic lens cover that repels water while helping to eliminate lens flare and other artifacts.\r\nHyperSmooth 4.0: HyperSmooth has never been smoother, and it’s easy to dial in the best stabilization at all times. Plus, get even better low-light performance and horizon leveling with a higher tilt limit, so your footage looks perfectly straight when you want it.\r\nFast, Reliable Connectivity: Super easy, super fast. Transferring photos and videos from your cloud-connected GoPro to your phone is simple and versatile, with your choice of effortless wireless upload via the Quik app or a lightning-fast wired connection via USB. There’s also unlimited cloud storage with hassle-free auto upload. Just plug in your camera when connected to your home Wi-Fi and the camera does the rest.",
+    "image": "publication_images/gopro_.jpg",
+    "price": "474.99",
+    "created_at": "2022-07-09T06:37:02.195Z",
+    "updated_at": "2022-07-09T07:14:14.798Z",
+    "published_at": null,
+    "moderation_status": "NOT_MODERATED"
+  }
+},
+{
+  "model": "publications.publication",
+  "pk": 3,
+  "fields": {
+    "is_deleted": false,
+    "category": 2,
+    "user": 3,
+    "title": "GORLYA Girl's Flutter Sleeve Stretchy A-Line Swing Flared Skater Party Dress with Pockets for 4-12 Years Kids",
+    "text": "Gorlya Girl's Flutter Sleeve Stretchy A-Line Swing Flared Skater Party Dress with Pockets for 4-12 Years Kids\r\nMaterial: 100% Polyester\r\n\r\nFabrics: Soft, Stretchable and breathable fabric without pilling, comfortable to wear, makes you feeling well.\r\n\r\nFeature: Fashion and Unique Casual Style, Ruffle Trim Flutter Sleeve, Fit and Flare A-Line Design, Elegant Party Swing Dress.\r\n\r\nGender: Girl\r\n\r\nStyle: Unique Casual Fashion Style\r\n\r\nSeason: Spring, Summer, Autumn, Winter\r\n\r\nDress Length: Above Knee Length, Short Dress\r\n\r\nSleeve Type: Ruffle Trim Flutter Sleeve\r\n\r\nNeck Style: Round Neck\r\n\r\nPocket: Two Side Pockets\r\n\r\nAvailable in age: For 4-14 Years Kids\r\n\r\nColor: Black, Royal Blue , Mustard Yellow, Dark Peach Pink, Navy Floral Print, Maroon and White Dot, Purple Flower\r\n\r\nFashion Mix: Beach, Personality Necklace, Hat, flats, sandals or leisure slippers, etc.\r\n\r\nOccasions: Party Activity, Semi-formal Special Occasion, Casual Outdoor, Banquet, Wedding, Banquet, Holiday Outside, Seaside Beach, Back to School, Church, Easter, Thanksgiving, Halloween, Christmas, New Year Dress, Daily Wear, Group Performing Costumes such as choirs and orchestras, etc.",
+    "image": "publication_images/clothing_.jpg",
+    "price": null,
+    "created_at": "2022-07-09T06:41:30.063Z",
+    "updated_at": "2022-07-09T06:56:47.246Z",
+    "published_at": null,
+    "moderation_status": "VALID"
+  }
+},
+{
+  "model": "publications.publication",
+  "pk": 4,
+  "fields": {
+    "is_deleted": false,
+    "category": 2,
+    "user": 2,
+    "title": "Under Armour Men's Tech Graphic Shorts",
+    "text": "100% Polyester\r\nImported\r\nPull On closure\r\nMachine Wash\r\nUA Tech fabric is quick-drying, ultra-soft & has a more natural feel\r\nMaterial wicks sweat & dries really fast\r\nEncased elastic waistband with internal drawcord\r\nMesh hand pockets\r\nInseam: 10\"\"\r\nNo liner\r\nLoose: Fuller cut for complete comfort",
+    "image": "publication_images/shorts.jpg",
+    "price": "17.13",
+    "created_at": "2022-07-09T07:59:22.527Z",
+    "updated_at": "2022-07-09T07:59:22.527Z",
+    "published_at": null,
+    "moderation_status": "NOT_MODERATED"
+  }
+},
+{
+  "model": "publications.publication",
+  "pk": 5,
+  "fields": {
+    "is_deleted": false,
+    "category": 2,
+    "user": 2,
+    "title": "TOZO A1 Mini Wireless Earbuds Bluetooth 5.3 in Ear Light-Weight Headphones Built-in Microphone",
+    "text": "About this item\r\n[Ultra lightweight and compatible for small ear] The surface and Angle of A1 earbuds in-ear part have been polished and refined repeatedly to achieve a balance between beauty and comfort and make it comfortable to wear. Likewise, a single earbud weighs only 3.7g, making it as light as a feather and discreet in the ear. Ergonomic design provides a comfortable and secure fit that doesn’t protrude from your ears especially for Sports, Workout, Gym.\r\n[Stereo sound quality] TOZO A1 earbuds’6mm diameter speaker presents a powerful and wide sound range, which makes the treble full of dynamics, and the bass powerful.Adopt advanced Bluetooth chip makes the sound played by the earphones much more beautiful and pleasant, suitable for sports or home work\r\n[Smart touch control] A1 earbuds supports dual ear touch control, providing convenient operation on volume control, previous/next song, pause and answer calls along as well as voice assistant control.\r\n[Bluetooth 5.3 &Long distance connection] ] With Bluetooth 5.3 technology A1 has superior sound quality and strong signal, so that there is no disconnection in listening music or making phone calls within 12 meters.\r\n[Long battery life] With headphone 40mAh capacity and charging bin 400mAh capacity,The earbuds lasts 6 hours for normal use (60% volume), and the charging bin lasts 24 hours for 3 charges,which gives you excellent experience of long endurance.",
+    "image": "publication_images/airpods_Gyuk3nY.jpg",
+    "price": null,
+    "created_at": "2022-07-09T08:41:33.212Z",
+    "updated_at": "2022-07-09T08:41:33.212Z",
+    "published_at": null,
+    "moderation_status": "VALID"
+  }
+}
+]
