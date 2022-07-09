@@ -16,6 +16,8 @@
                 {% endif %}
                 <p class="card-text">by <a href="{% url 'accounts:user_detail' pub.user.pk %}"><span class="username-text">{{ pub.user.get_full_name }}</span></a></p>
                 <p class="card-text">Category: {{ pub.category }}</p>
+                            <p class="card-text">Phone: {{ pub.user.phone }}</p>
+
                 {% if pub.published_at %}
                 <small class="text-muted">Published: {{ pub.published_at }}</small>
                 {% endif %}

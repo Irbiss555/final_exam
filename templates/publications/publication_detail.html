@@ -16,6 +16,7 @@
                 <p class="card-text">{{ publication.text }}</p>
                 <p class="card-text">Author: <a href="{% url 'accounts:user_detail' publication.user.pk %}"><span
                         class="username-text">{{ publication.user.username }}</span></a></p>
+                            <p class="card-text">Phone: {{ publication.user.phone }}</p>
             {% if publication.published_at %}
                 <small class="text-muted">Published: {{ publication.published_at }}</small>
                 {% endif %}
