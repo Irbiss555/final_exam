@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1 style="text-transform: capitalize">{{ user_obj.username }}'s account</h1>
+
+    <div class="card mb-3" style="border: none">
+        <div class="row g-0">
+            <div class="card-body">
+                    <h5 class="card-title">Username: {{ user_obj.username }}</h5>
+                    <p class="card-text">Name: {{ user_obj.first_name }}</p>
+                    <p class="card-text">Email: {{ user_obj.email }}</p>
+                </div>
+        </div>
+    </div>
+    <h3 style="margin-top: 40px">Bookmarks</h3>
+    {% include 'partial/photo/partial_photo_list.html' with photos=user_obj.bookmarked_photos.all %}
+{% endblock %}
