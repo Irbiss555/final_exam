@@ -7,7 +7,7 @@ from django.views.generic import ListView, CreateView, DetailView, UpdateView
 
 from publications.forms import PublicationForm
 from publications.models import Publication
-from publications.services import publication_list_service, publication_create_service
+from publications.services import publication_list_service, publication_create_service, publication_update_service
 
 
 class PublicationListView(ListView):
@@ -49,17 +49,13 @@ class PublicationUpdateView(UserPassesTestMixin, UpdateView):
     model = Publication
     context_object_name = 'publication'
     form_class = PublicationForm
-    # permission_required = 'publications.change_publication'
 
     def test_func(self):
         return self.request.user == self.get_object().user and self.get_object().moderation_status == 'VALID'
 
     def get_success_url(self):
         return reverse('publications:publication_detail', kwargs={'pk': self.object.pk})
-    # def has_permission(self):
-    #     return (
-    #             super().has_permission() and
-    #             self.request.user == self.get_object().user and
-    #             self.get_object().moderation_status == 'VALID'
-    #             )
 
+    def form_valid(self, form):
+        publication_update_service(publication=self.object, **form.cleaned_data)
+        return redirect(self.get_success_url())

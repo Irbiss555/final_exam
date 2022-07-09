@@ -20,6 +20,9 @@
             {% if publication.published_at %}
                 <small class="text-muted">Published: {{ publication.published_at }}</small>
                 {% endif %}
+            {% if publication.user == request.user %}
+                <p class="card-text text-{% if publication.moderation_status == 'VALID' %}success{% elif publication.moderation_status == 'INVALID'%}danger{% else %}primary{% endif %}">{{ publication.get_moderation_status_display }}</p>
+            {% endif %}
                 <div class="card-footer">
                     {% if publication.moderation_status == 'VALID' and request.user == publication.user %}
                         <a href="{% url 'publications:publication_update' publication.pk %}" class="btn btn-primary">Edit</a>

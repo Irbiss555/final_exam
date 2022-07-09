@@ -30,3 +30,15 @@ def publication_create_service(**data):
     publication = Publication.objects.create(**data)
     set_values_to_m2m_fields_of_object(publication, m2m_fields_dict)
     return publication
+
+
+def publication_update_service(publication, **data):
+    m2m_fields_dict = get_m2m_fields_data(Publication, data)
+    set_values_to_m2m_fields_of_object(publication, m2m_fields_dict)
+    for field, value in data.items():
+        setattr(publication, field, value)
+    publication.moderation_status = "NOT_MODERATED"
+    publication.save()
+    return publication
+
+
