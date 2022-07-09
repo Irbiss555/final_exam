@@ -69,3 +69,15 @@ class PublicationDeleteView(UserPassesTestMixin, DeleteView):
 
     def get_success_url(self):
         return reverse('accounts:user_detail', kwargs={'pk': self.object.user.pk})
+
+
+class PublicationListToModerate(UserPassesTestMixin, ListView):
+    template_name = 'publications/publication_list_to_moderate.html'
+    model = Publication
+    context_object_name = 'publications'
+
+    def test_func(self):
+        return self.request.user.is_staff
+
+    def get_queryset(self):
+        return publication_list_service(moderation_status='NOT_MODERATED')
