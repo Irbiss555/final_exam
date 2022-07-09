@@ -81,3 +81,13 @@ class PublicationListToModerate(UserPassesTestMixin, ListView):
 
     def get_queryset(self):
         return publication_list_service(moderation_status='NOT_MODERATED')
+
+
+class PublicationDetailToModerateView(UserPassesTestMixin, DetailView):
+    template_name = 'publications/publication_detail.html'
+    model = Publication
+    context_object_name = 'publication'
+
+    def test_func(self):
+        return self.request.user.is_staff
+

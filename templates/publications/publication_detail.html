@@ -31,6 +31,12 @@
                         </button>
                         {% include 'partial/publications/delete_publication_modal.html' %}
                     {% endif %}
+                {% if request.user.is_staff %}
+                    <button class="btn btn-primary">Moderation valid
+                        </button>
+                    <button class="btn btn-danger">Moderation invalid
+                        </button>
+                {% endif %}
                 </div>
             </div>
     </div>
