@@ -19,8 +19,8 @@
             {% if publication.published_at %}
                 <small class="text-muted">Published: {{ publication.published_at }}</small>
                 {% endif %}
-            {% if publication.user == request.user %}
-                <p class="card-text text-{% if publication.moderation_status == 'VALID' %}success{% elif publication.moderation_status == 'INVALID'%}danger{% else %}primary{% endif %}">{{ publication.get_moderation_status_display }}</p>
+            {% if publication.user == request.user or request.user.is_staff %}
+                <p id="moderation-text" class="card-text text-{% if publication.moderation_status == 'VALID' %}success{% elif publication.moderation_status == 'INVALID'%}danger{% else %}primary{% endif %}">{{ publication.get_moderation_status_display }}</p>
             {% endif %}
                 <div class="card-footer">
                     {% if publication.moderation_status != 'INVALID' and request.user == publication.user %}
@@ -32,9 +32,9 @@
                         {% include 'partial/publications/delete_publication_modal.html' %}
                     {% endif %}
                 {% if request.user.is_staff %}
-                    <button class="btn btn-primary">Moderation valid
+                    <button class="btn btn-primary" data-id="{{ publication.pk }}" id="btn-moderation-valid">Moderation valid
                         </button>
-                    <button class="btn btn-danger">Moderation invalid
+                    <button class="btn btn-danger" data-id="{{ publication.pk }}" id="btn-moderation-invalid">Moderation invalid
                         </button>
                 {% endif %}
                 </div>
