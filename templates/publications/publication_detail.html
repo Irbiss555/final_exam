@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{#    <div class="photo-container">#}
+        <div class="card mb-3 post">
+            <div class="card-header">
+                    <div class="image" style="height: 800px; width: 100%">
+                        <img src="{{ publication.image.url }}" class="card-img-top" alt="...">
+                    </div>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">{{ publication.title }}</h4>
+                <p class="card-text">{{ publication.text }}</p>
+                <p class="card-text">Author: <a href="{% url 'accounts:user_detail' publication.user.pk %}"><span
+                        class="username-text">{{ publication.user.username }}</span></a></p>
+            {% if publication.published_at %}
+                <small class="text-muted">Published: {{ publication.published_at }}</small>
+                {% endif %}
+                <div class="card-footer">
+                    {% if publication.moderation_status == 'VALID' and request.user == publication.user %}
+                        <a href="#" class="btn btn-primary">Edit</a>
+                    {% endif %}
+                    {% if publication.moderation_status == 'INVALID' and request.user == publication.user %}
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete
+                        </button>
+{#                        {% include 'partial/photo/delete_photo_modal.html' %}#}
+                    {% endif %}
+                </div>
+            </div>
+{#        </div>#}
+    </div>
+{% endblock %}

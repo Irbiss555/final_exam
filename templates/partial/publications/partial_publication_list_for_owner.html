@@ -3,7 +3,7 @@
     {% for pub in publications %}
         <div class="card mb-3 post">
             <div class="card-header">
-                <a href="#">
+                <a href="{% url 'publications:publication_detail' pub.pk %}">
                     <div class="image">
                     <img src="{{ pub.image.url }}" class="card-img-top" alt="...">
                 </div>

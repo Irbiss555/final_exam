@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.urls import reverse
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView
 
 from publications.forms import PublicationForm
 from publications.models import Publication
@@ -35,3 +35,9 @@ class PublicationCreateView(CreateView):
 
     def get_success_url(self):
         return reverse('accounts:user_detail', kwargs={'pk': self.request.user.pk})
+
+
+class PublicationDetailView(DetailView):
+    template_name = 'publications/publication_detail.html'
+    model = Publication
+    context_object_name = 'publication'
