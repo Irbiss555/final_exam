@@ -1,0 +1,60 @@
+{% csrf_token %}
+<div class="mb-3">
+    <label for="title" class="form-label">{{ form.title.label }}</label>
+    <input type="text" class="form-control" id="title" name="{{ form.title.name }}" value="{{ form.title.value|default_if_none:'' }}">
+    {% for error in form.title.errors %}
+        <div role="alert" style="color: red;">
+            {{ error }}
+        </div>
+    {% endfor %}
+</div>
+
+<div class="mb-3">
+    <label for="image" class="form-label">{{ form.image.label }}</label>
+    <input type="file" class="form-control" id="image" name="{{ form.image.name }}">
+    {% for error in form.image.errors %}
+        <div role="alert" style="color: red;">
+            {{ error }}
+        </div>
+    {% endfor %}
+</div>
+<div class="mb-3">
+    <label for="price" class="form-label">{{ form.price.label }}</label>
+    <input type="number" class="form-control" id="price" name="price" value="{{ form.price.value|default_if_none:'' }}">
+        {% for error in form.price.errors %}
+        <div role="alert" style="color: red;">
+            {{ error }}
+        </div>
+    {% endfor %}
+</div>
+
+<div class="mb-3">
+    <label for="text" class="form-label">{{ form.text.label }}</label>
+    <textarea name="{{ form.text.name }}" class="form-control" id="text"
+              rows="10">{{ form.text.value|default_if_none:'' }}</textarea>
+    {% for error in form.text.errors %}
+        <div role="alert" style="color: red;">
+            {{ error }}
+        </div>
+    {% endfor %}
+</div>
+
+<div class="mb-3">
+    <label for="status" class="form-label">{{ form.category.label }}</label>
+    <select name="{{ form.category.name }}" class="form-select" aria-label="Default select example">
+        {% for category in form.category.field.queryset %}
+            {% if category == form.instance.category %}
+                <option value="{{ category.pk }}" selected>{{ category.name }}</option>
+            {% else %}
+                <option value="{{ category.pk }}">{{ category.name }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+    {% for error in form.category.errors %}
+        <div role="alert" style="color: red;">
+            {{ error }}
+        </div>
+    {% endfor %}
+</div>
+
+<button type="submit" class="btn btn-primary">{{ btn_title }}</button>
