@@ -15,7 +15,7 @@
     </div>
     <h3 style="margin-top: 40px">Publications</h3>
     {% if request.user == user_obj %}
-            {% include 'partial/publications/partial_publication_list.html' with publications=user_obj.publications.all %}
+            {% include 'partial/publications/partial_publication_list_for_owner.html' with publications=user_obj.publications.all %}
     {% else %}
             {% include 'partial/publications/partial_publication_list.html' with publications=filtered_publications %}
     {% endif %}

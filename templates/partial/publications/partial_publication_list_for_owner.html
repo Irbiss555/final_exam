@@ -12,6 +12,7 @@
             <div class="card-body">
                 <h4 class="card-title">{{ pub.title }}</h4>
                 <p class="card-text">by <a href="{% url 'accounts:user_detail' pub.user.pk %}"><span class="username-text">{{ pub.user.get_full_name }}</span></a></p>
+                <p class="card-text text-{% if pub.moderation_status == 'VALID' %}success{% elif pub.moderation_status == 'INVALID'%}danger{% else %}primary{% endif %}">{{ pub.get_moderation_status_display }}</p>
                 {% if pub.published_at %}
                 <small class="text-muted">Published: {{ pub.published_at }}</small>
                 {% endif %}
